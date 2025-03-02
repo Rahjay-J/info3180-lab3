@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Contact</h1>
+<hr>
+<p>Fill Contact form below.</p>
+
+<div class="container">
+    <form method="POST">
+        {{ form.csrf_token }}  {# CSRF token for security #}
+        <div class="mb-3">
+            <label for="name" class="form-label">
+                <strong>Name</strong> <span style="color: navy; font-weight: bold;">(Required<sup>*</sup>)</span>
+            </label>
+            {{ form.name(class="form-control", id="name", placeholder="Enter your Full name", required=true) }}
+        </div>
+    
+        <div class="mb-3">
+            <label for="email" class="form-label">
+                <strong>E-mail</strong> <span style="color: navy; font-weight: bold;">(Required<sup>*</sup>)</span>
+            </label>
+            {{ form.email(class="form-control", id="email", placeholder="Enter your E-mail address", required=true) }}
+        </div>
+    
+        <div class="mb-3">
+            <label for="subject" class="form-label">
+                <strong>Subject</strong> <span style="color: navy; font-weight: bold;">(Required<sup>*</sup>)</span>
+            </label>
+            {{ form.subject(class="form-control", id="subject", placeholder="Please enter the subject for your message", required=true) }}
+        </div>
+    
+        <div class="mb-3">
+            <label for="message" class="form-label">
+                <strong>Message</strong> <span style="color: navy; font-weight: bold;">(Required<sup>*</sup>)</span>
+            </label>
+            {{ form.message(class="form-control", id="message", rows=4, placeholder="Please enter the message you wish to send", required=true) }}
+        </div>
+    
+        <button type="submit" class="btn" style="background-color: red; color: white;">
+            Submit
+        </button>
+    </form>     
+</div>
+{% endblock %}
